@@ -1,0 +1,12 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, ‘8.0’
+
+target 'TPDownLoadDemo' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for TPDownLoadDemo
+
+   pod 'AFNetworking', '~> 3.2.1'
+   pod 'SAMCategories', '~> 0.5.2'
+end

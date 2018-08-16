@@ -127,7 +127,8 @@
             // 调用cancle的时候，任务也会结束，并返回-999错误，此时由于系统已返回resumeData，不另行处理了
             if (!error) {
                 // 任务完成
-                
+                [TPDownLoadCache removeResumeInfoWithTaskId:taskId];
+                [TPDownLoadCache removeTempFileWithTask:taskId];
             }
             
             if (completionHandler) {
@@ -164,6 +165,7 @@
     NSData *resumeData = [TPDownLoadCache getResumeDataWithTaskId:taskId];
     NSURLSessionDownloadTask *downloadTask = nil;
     if (resumeData) {
+       
         downloadTask =
         [manager downloadTaskWithResumeData:resumeData
                                    progress:progressHandler
@@ -171,26 +173,20 @@
                           completionHandler:completeBlock];
 
         [TPDownLoadCache removeResumeInfoWithTaskId:taskId];
+       
 //        [TPDownLoadCache removeTempFileWithTask:taskId];
     }else
     {
         NSLog(@"新建下载任务");
-        //还需要判断是否下载完成
-        //1.判断如果已经存在下载则取消本次任务
-        for (NSDictionary *operationDic in self.operationsArray) {
-            if ([operationDic[@"taskID"] isEqualToString:taskId]) {
-                //取消当前的任务，你也可以向处于suspend状态的任务发送cancel消息，任务如果被取消便不能再恢复到之前的状态&&[operationDic[@"operation"] state] != NSURLSessionTaskStateSuspended
-                [downloadTask cancel];
-               
-            }
-        }
+       
         //首次进来的时候则普通下载任务
         downloadTask = [manager downloadTaskWithRequest:request
                                                 progress:progressHandler
                                              destination:destination
                                        completionHandler:completeBlock];
         //获取临时文件并进行保存 临时文件与taskID通过一个本地字典进行捆绑
-        [TPDownLoadCache saveTempFileName:[TPDownLoadCache getTempFileNameWithDownloadTask:downloadTask] taskId:taskId];
+        NSString *tempFileName = [TPDownLoadCache getTempFileNameWithDownloadTask:downloadTask];
+        [TPDownLoadCache saveTempFileName:tempFileName taskId:taskId];
     }
     
 

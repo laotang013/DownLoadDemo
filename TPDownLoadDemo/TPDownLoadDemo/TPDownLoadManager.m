@@ -18,6 +18,7 @@
 #import "TPDownLoadSession.h"
 #import "TPDownLoadModel.h"
 #import "TPDownLoadCache.h"
+#import "YYDownloadManager.h"
 @interface TPDownLoadManager()
 /**全部下载列表*/
 @property(nonatomic,strong)NSMutableArray *allDownLoadList;
@@ -84,11 +85,9 @@
      1.涉及到这个模块 1.多个文件组成下载包 计算进度 2.全部下载完成则表示下载完成
      */
     __block BOOL taskSuccess = YES;
-//    task.videoUrl = [task.videoUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
-//    task.voiceUrl =[task.voiceUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<> "].invertedSet];
     NSArray *validArray = @[task.videoUrl,task.voiceUrl];
-    dispatch_group_t dispatchGroup = dispatch_group_create();
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_group_t dispatchGroup = dispatch_group_create();
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 //    for (NSString *taskUrl in validArray) {
 //        NSInteger index = [validArray indexOfObject:taskUrl];
 //        dispatch_group_enter(dispatchGroup);
@@ -110,55 +109,62 @@
     
         for (NSString *taskUrl in validArray) {
             
-            dispatch_group_enter(dispatchGroup);
-            dispatch_sync(queue, ^{
+//            dispatch_group_enter(dispatchGroup);
+//            dispatch_sync(queue, ^{
                 NSString *tempFilePath = [TPDownLoadCache getFilePathWithModel:task taskUrl:taskUrl];
                 //唯一标识符
                 NSString *taskId = [TPDownLoadCache getTaskIdWithUrlStr:taskUrl sceneId:task.senceId];
-               
-                //1.先遍历是否有现在任务
-//                for (NSDictionary *operationDic in self.allDownLoadList) {
-//                    if ([operationDic[@"taskID"] isEqualToString:taskId]) {
-//                         NSURLSessionDownloadTask *operation = operationDic[@"operation"];
-//                        [operation resume];
-//                        return;
+            
+            NSString *dstUrl = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+            NSLog(@"\n\n%@\n\n",dstUrl);
+            dstUrl = [dstUrl stringByAppendingPathComponent:taskUrl.lastPathComponent];
+            __weak typeof(self) weakSelf = self;
+            NSURLSessionDownloadTask *task = [YYDownloadManager downloadTaskWithUrl:taskUrl destinationUrl:dstUrl progress:^(NSProgress *progress) {
+                NSLog(@"%lld %lld %f",progress.totalUnitCount, progress.completedUnitCount, progress.fractionCompleted);
+                dispatch_async(dispatch_get_main_queue(), ^{
+//                    weakSelf.progressView.progress = progress.fractionCompleted;
+                });
+            } complete:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+                NSLog(@"%@",filePath);
+            }];
+            [task resume];
+            [self.allDownLoadList addObject:task];
+//               NSURLSessionDownloadTask *downlodTask =  [[TPDownLoadSession session] downLoadTaskWithDownloadUrl:[NSURL URLWithString:taskUrl] taskId:taskId filePath:tempFilePath progress:^(NSProgress *progress) {
+//                    NSLog(@"%f",(1.0 * (progress.completedUnitCount)) /progress.totalUnitCount);
+//                } complete:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+////                     dispatch_group_leave(dispatchGroup);
+//                    if (error) {
+//                        NSLog(@"error: %@",error);
 //                    }
-//                }
-                
-               NSURLSessionDownloadTask *downlodTask =  [[TPDownLoadSession session] downLoadTaskWithDownloadUrl:[NSURL URLWithString:taskUrl] taskId:taskId filePath:tempFilePath progress:^(NSProgress *progress) {
-                    NSLog(@"%f",(1.0 * (progress.completedUnitCount)) /progress.totalUnitCount);
-                } complete:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-                     dispatch_group_leave(dispatchGroup);
-                    if (error) {
-                        NSLog(@"error: %@",error);
-                    }
-                }];
-                NSDictionary *operationDic = @{@"taskID":taskId,@"operation":downlodTask};
-                [self.allDownLoadList addObject:operationDic];
-                [downlodTask resume];
-            });
+//                }];
+//                NSDictionary *operationDic = @{@"taskID":taskId,@"operation":downlodTask};
+//                [self.allDownLoadList addObject:operationDic];
+//                [downlodTask resume];
+//            });
     
     }
-    dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
-        if (taskSuccess) {
-            NSLog(@"下载成功");
-        }else
-        {
-            NSLog(@"下载失败");
-        }
-    });
-    
+//    dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+//        if (taskSuccess) {
+//            NSLog(@"下载成功");
+//        }else
+//        {
+//            NSLog(@"下载失败");
+//        }
+//    });
+
 }
 
 -(void)pauseDownLoadTask:(TPDownLoadModel *)task
 {
     //将模型中的的下载遍历暂停
-    NSArray *taskUrl = @[task.videoUrl,task.voiceUrl];
-    for (NSString *taskurl in taskUrl) {
-       NSString *taskId = [TPDownLoadCache getTaskIdWithUrlStr:taskurl sceneId:task.senceId];
-       [[TPDownLoadSession session] suspendOperationTaskId:taskId resume:NO];
+//    NSArray *taskUrl = @[task.videoUrl,task.voiceUrl];
+//    for (NSString *taskurl in taskUrl) {
+//       NSString *taskId = [TPDownLoadCache getTaskIdWithUrlStr:taskurl sceneId:task.senceId];
+//       [[TPDownLoadSession session] suspendOperationTaskId:taskId resume:NO];
+//    }
+    for (NSURLSessionDownloadTask *task in self.allDownLoadList) {
+        [task suspend];
     }
-    
     
 }
 -(void) resumeDownLoadTask:(TPDownLoadModel *)task

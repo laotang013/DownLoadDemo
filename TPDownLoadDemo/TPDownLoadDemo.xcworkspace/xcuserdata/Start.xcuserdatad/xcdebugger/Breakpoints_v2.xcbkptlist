@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TPDownLoadDemo/TPDownLoadSession.m"
-            timestampString = "553510869.204487"
+            timestampString = "553523697.409655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-downLoadTaskWithDownloadUrl:taskId:filePath:progress:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,12 +52,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TPDownLoadDemo/TPDownLoadSession.m"
-            timestampString = "553510869.204563"
+            timestampString = "553523698.905969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "-downLoadTaskWithDownloadUrl:taskId:filePath:progress:complete:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TPDownLoadDemo/YYDownloadManager.m"
+            timestampString = "554453072.83296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-downloadData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TPDownLoadDemo/YYDownloadManager.m"
+            timestampString = "554453075.291466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-downloadData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

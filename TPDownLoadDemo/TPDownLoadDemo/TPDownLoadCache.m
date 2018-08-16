@@ -227,6 +227,7 @@
         NSString *resumeDataPath = [self randomResumeDataName:taskId];
         [FileManager removeItemAtPath:resumeDataPath error:nil];
     }
+  
 }
 +(void)removeTempFileWithTask:(NSString *)taskId
 {

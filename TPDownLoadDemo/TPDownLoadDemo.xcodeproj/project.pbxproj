@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A41A7A830123E5275EB5A3AF /* libPods-TPDownLoadDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C650F8ABDE4EB94E2A5BDED0 /* libPods-TPDownLoadDemo.a */; };
+		C9407FA92111852D00038BAB /* HETDownloadUrlSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C9407FA72111852C00038BAB /* HETDownloadUrlSession.m */; };
+		C986F9EC210C1A6300BC9119 /* TPDownLoadSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C986F9EB210C1A6300BC9119 /* TPDownLoadSession.m */; };
+		C986F9EF210C1AC200BC9119 /* YYDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C986F9EE210C1AC100BC9119 /* YYDownloadManager.m */; };
 		C99A3FEA20F75F97006DEDA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A3FE920F75F97006DEDA2 /* AppDelegate.m */; };
 		C99A3FED20F75F97006DEDA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A3FEC20F75F97006DEDA2 /* ViewController.m */; };
 		C99A3FF020F75F97006DEDA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99A3FEE20F75F97006DEDA2 /* Main.storyboard */; };
@@ -15,7 +18,6 @@
 		C99A3FF520F75F97006DEDA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99A3FF320F75F97006DEDA2 /* LaunchScreen.storyboard */; };
 		C99A3FF820F75F97006DEDA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A3FF720F75F97006DEDA2 /* main.m */; };
 		C99A400220F75F97006DEDA2 /* TPDownLoadDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A400120F75F97006DEDA2 /* TPDownLoadDemoTests.m */; };
-		C99A401620F75FA7006DEDA2 /* TPDownLoadSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A400D20F75FA6006DEDA2 /* TPDownLoadSession.m */; };
 		C99A401720F75FA7006DEDA2 /* TPDownLoadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A400E20F75FA6006DEDA2 /* TPDownLoadCache.m */; };
 		C99A401820F75FA7006DEDA2 /* TPDownLoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A401020F75FA6006DEDA2 /* TPDownLoadManager.m */; };
 		C99A401920F75FA7006DEDA2 /* TPDownLoadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C99A401120F75FA7006DEDA2 /* TPDownLoadModel.m */; };
@@ -36,6 +38,14 @@
 		38A2FBD81319165F20063D72 /* Pods-TPDownLoadDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPDownLoadDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPDownLoadDemo/Pods-TPDownLoadDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C59FB66FCA5B6AEF3FB3240A /* Pods-TPDownLoadDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPDownLoadDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPDownLoadDemo/Pods-TPDownLoadDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C650F8ABDE4EB94E2A5BDED0 /* libPods-TPDownLoadDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TPDownLoadDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9407FA2211184E900038BAB /* HETDownloadUrlSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HETDownloadUrlSession.m; path = "../../../Documents/项目集合/Clife_Sleep_Dolphin的07_31/CSleepDolphin/CSleepDolphin/Section/Features/Sleeping/ViewModel/HETDownloadUrlSession.m"; sourceTree = "<group>"; };
+		C9407FA3211184EA00038BAB /* HETDownloadUrlSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HETDownloadUrlSession.h; path = "../../../Documents/项目集合/Clife_Sleep_Dolphin的07_31/CSleepDolphin/CSleepDolphin/Section/Features/Sleeping/ViewModel/HETDownloadUrlSession.h"; sourceTree = "<group>"; };
+		C9407FA72111852C00038BAB /* HETDownloadUrlSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HETDownloadUrlSession.m; sourceTree = "<group>"; };
+		C9407FA82111852C00038BAB /* HETDownloadUrlSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HETDownloadUrlSession.h; sourceTree = "<group>"; };
+		C986F9E2210C140300BC9119 /* TPDownLoadSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDownLoadSession.h; sourceTree = "<group>"; };
+		C986F9EB210C1A6300BC9119 /* TPDownLoadSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDownLoadSession.m; sourceTree = "<group>"; };
+		C986F9ED210C1AC100BC9119 /* YYDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDownloadManager.h; sourceTree = "<group>"; };
+		C986F9EE210C1AC100BC9119 /* YYDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDownloadManager.m; sourceTree = "<group>"; };
 		C99A3FE520F75F97006DEDA2 /* TPDownLoadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPDownLoadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99A3FE820F75F97006DEDA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C99A3FE920F75F97006DEDA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,12 +60,10 @@
 		C99A400120F75F97006DEDA2 /* TPDownLoadDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDownLoadDemoTests.m; sourceTree = "<group>"; };
 		C99A400320F75F97006DEDA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99A400C20F75FA6006DEDA2 /* TPDownLoadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDownLoadModel.h; sourceTree = "<group>"; };
-		C99A400D20F75FA6006DEDA2 /* TPDownLoadSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDownLoadSession.m; sourceTree = "<group>"; };
 		C99A400E20F75FA6006DEDA2 /* TPDownLoadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDownLoadCache.m; sourceTree = "<group>"; };
 		C99A400F20F75FA6006DEDA2 /* TPDownLoadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDownLoadCache.h; sourceTree = "<group>"; };
 		C99A401020F75FA6006DEDA2 /* TPDownLoadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDownLoadManager.m; sourceTree = "<group>"; };
 		C99A401120F75FA7006DEDA2 /* TPDownLoadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDownLoadModel.m; sourceTree = "<group>"; };
-		C99A401220F75FA7006DEDA2 /* TPDownLoadSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDownLoadSession.h; sourceTree = "<group>"; };
 		C99A401320F75FA7006DEDA2 /* TPDownLoadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDownLoadManager.h; sourceTree = "<group>"; };
 		C99A401420F75FA7006DEDA2 /* TPDownLoadChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDownLoadChecker.m; sourceTree = "<group>"; };
 		C99A401520F75FA7006DEDA2 /* TPDownLoadChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDownLoadChecker.h; sourceTree = "<group>"; };
@@ -115,6 +123,10 @@
 				C99A3FE920F75F97006DEDA2 /* AppDelegate.m */,
 				C99A3FEB20F75F97006DEDA2 /* ViewController.h */,
 				C99A3FEC20F75F97006DEDA2 /* ViewController.m */,
+				C9407FA3211184EA00038BAB /* HETDownloadUrlSession.h */,
+				C9407FA82111852C00038BAB /* HETDownloadUrlSession.h */,
+				C9407FA2211184E900038BAB /* HETDownloadUrlSession.m */,
+				C9407FA72111852C00038BAB /* HETDownloadUrlSession.m */,
 				C99A401320F75FA7006DEDA2 /* TPDownLoadManager.h */,
 				C99A401020F75FA6006DEDA2 /* TPDownLoadManager.m */,
 				C99A400F20F75FA6006DEDA2 /* TPDownLoadCache.h */,
@@ -123,8 +135,10 @@
 				C99A401420F75FA7006DEDA2 /* TPDownLoadChecker.m */,
 				C99A400C20F75FA6006DEDA2 /* TPDownLoadModel.h */,
 				C99A401120F75FA7006DEDA2 /* TPDownLoadModel.m */,
-				C99A401220F75FA7006DEDA2 /* TPDownLoadSession.h */,
-				C99A400D20F75FA6006DEDA2 /* TPDownLoadSession.m */,
+				C986F9E2210C140300BC9119 /* TPDownLoadSession.h */,
+				C986F9EB210C1A6300BC9119 /* TPDownLoadSession.m */,
+				C986F9ED210C1AC100BC9119 /* YYDownloadManager.h */,
+				C986F9EE210C1AC100BC9119 /* YYDownloadManager.m */,
 				C99A3FEE20F75F97006DEDA2 /* Main.storyboard */,
 				C99A3FF120F75F97006DEDA2 /* Assets.xcassets */,
 				C99A3FF320F75F97006DEDA2 /* LaunchScreen.storyboard */,
@@ -316,9 +330,11 @@
 				C99A401720F75FA7006DEDA2 /* TPDownLoadCache.m in Sources */,
 				C99A401920F75FA7006DEDA2 /* TPDownLoadModel.m in Sources */,
 				C99A3FF820F75F97006DEDA2 /* main.m in Sources */,
-				C99A401620F75FA7006DEDA2 /* TPDownLoadSession.m in Sources */,
 				C99A3FEA20F75F97006DEDA2 /* AppDelegate.m in Sources */,
+				C986F9EC210C1A6300BC9119 /* TPDownLoadSession.m in Sources */,
 				C99A401A20F75FA7006DEDA2 /* TPDownLoadChecker.m in Sources */,
+				C9407FA92111852D00038BAB /* HETDownloadUrlSession.m in Sources */,
+				C986F9EF210C1AC200BC9119 /* YYDownloadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

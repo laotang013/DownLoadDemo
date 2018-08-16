@@ -17,9 +17,6 @@
 
 //生成路径 通过一个TaskID 和一个taskUrl MD5加密 来生成唯一路径
 
-
-
-
 //移动文件（从临时文件夹移到正式文件夹）
 + (BOOL)moveTempFileWithStepModel:(TPDownLoadModel *)downLoadModel tempFile:(NSString *)tempFile taskUrl:(NSString *)taskUrl;
 //获取唯一的taskID
